@@ -33,7 +33,7 @@ optionsBuilder
 ```
 
 > [!NOTE]  
-> Provider selector methods and other behavior selector methods mentioned above are extension methods on `DbContextOptions` or provider-specific option classes. In order to have access to these extension methods you may need to have a namespace (typically `Microsoft.EntityFrameworkCore`) in scope and include additional package dependencies in the project.
+> Provider selector methods (like **options.UseSqlite()** and **options.UseSqlServer()**) and other behavior selector methods mentioned above are extension methods on `DbContextOptions` or provider-specific option classes. In order to have access to these extension methods you may need to have a namespace (typically `Microsoft.EntityFrameworkCore`) in scope (ensure that a **using Microsoft.EntityFramworkCore;** statement is included in the list of using statements at the top of the file) and include additional package dependencies in the project.
 
 The `DbContextOptions` can be supplied to the `DbContext` by overriding the `OnConfiguring` method or externally via a constructor argument.
 
@@ -106,6 +106,7 @@ EF Core supports using `DbContext` with a dependency injection container. Your D
 See [more reading](#more-reading) below for additional information on dependency injection.
 
 Adding the `Dbcontext` to dependency injection:
+
 
 ``` csharp
 public void ConfigureServices(IServiceCollection services)
